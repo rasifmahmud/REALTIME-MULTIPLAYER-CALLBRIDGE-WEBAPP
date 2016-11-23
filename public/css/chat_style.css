@@ -1,0 +1,120 @@
+#player1_chat, #player2_chat, #player3_chat, #player4_chat {
+    width: 13%;
+    height: auto;
+    min-height: 3vw;
+    max-height: 7vw;
+    position: absolute;
+    padding-left: 0.2%;
+    padding-right: 0.2%;
+    padding-top: 0.2%;
+    padding-bottom: 0.2%;
+    /*background: #68C6EF;*/
+    background: url("../images/chat_back.jpg");
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    font-size: 1.3vw;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    line-height: 1.7vw;
+    white-space: normal;
+    /*overflow: hidden;*/
+    display: none;
+    word-wrap: break-word;
+    
+}
+
+#player1_chat{
+    position: absolute; 
+    top: 36%; 
+    left: 3%; 
+    /*display: inline-block;*/
+    display: none;
+}
+
+/*#player1_chat:before {
+    content: "";
+    position: absolute;
+    
+    top: -53%;
+    left: 5%;
+    border-left: 1.6vw solid transparent;
+    border-right: 1.6vw solid transparent;
+    border-bottom: 1.6vw solid ;
+    border-bottom-color: #DEBF89;
+
+
+
+}*/
+
+
+
+#player2_chat{
+    position: absolute; 
+    top: 76%; 
+    left: 3%; 
+    /*display: inline-block;*/
+    display: none;
+}
+
+/*#player2_chat:before {
+    content: "";
+    position: absolute;
+    
+    top: -53%;
+    left: 5%;
+    border-left: 1.6vw solid transparent;
+    border-right: 1.6vw solid transparent;
+    border-bottom: 1.6vw solid ;
+    border-bottom-color: #DEBF89;
+
+
+}*/
+
+
+#player3_chat{
+    position: absolute; 
+    top: 36%; 
+    left: 74.1%; 
+    /*display: inline-block;*/
+    display: none;
+}
+
+/*#player3_chat:before {
+    content: "";
+    position: absolute;
+    
+    top: -53%;
+    left: 71%;
+    border-left: 1.6vw solid transparent;
+    border-right: 1.6vw solid transparent;
+    border-bottom: 1.6vw solid ;
+    border-bottom-color: #DEBF89;
+
+
+}*/
+
+
+#player4_chat{
+    position: absolute; 
+    top: 76%; 
+    left: 74.1%; 
+    /*display: inline-block;*/
+    display: none;
+}
+
+/*#player4_chat:before {
+    content: "";
+    position: absolute;
+    
+    top: -23%;
+    left: 71%;
+    border-left: 1.6vw solid transparent;
+    border-right: 1.6vw solid transparent;
+    border-bottom: 1.6vw solid ;
+    border-bottom-color: #DEBF89;
+
+
+}
+*/
