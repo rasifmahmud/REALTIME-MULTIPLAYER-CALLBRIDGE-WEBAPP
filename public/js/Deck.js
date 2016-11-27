@@ -6886,7 +6886,7 @@ $(document).ready(function () {
 
 
 
-    /*
+/*
      ###################################################Chat.js############################################
      ############################################################################################################
      ############################################################################################################
@@ -6898,16 +6898,16 @@ $(document).ready(function () {
         var ultimate = data.ultimate;
         var message = data.message;
         if(ultimate==1){
-            chat_show("player1_chat",message, ultimate);
+            chat_show("player1_chat","player1_chat_bubble",message, ultimate);
         }
         else if(ultimate==2){
-            chat_show("player3_chat",message, ultimate);
+            chat_show("player3_chat","player4_chat_bubble",message, ultimate);
         }
         else if(ultimate==3){
-            chat_show("player2_chat",message, ultimate);
+            chat_show("player2_chat","player2_chat_bubble",message, ultimate);
         }
         else if(ultimate==4){
-            chat_show("player4_chat",message, ultimate);
+            chat_show("player4_chat","player3_chat_bubble",message, ultimate);
         }
 
      });
@@ -6946,16 +6946,16 @@ $(document).ready(function () {
 
             socket.emit("input",{ultimate: ultimate, message: message})
             if(ultimate==1){
-                chat_show("player1_chat",message,ultimate);
+                chat_show("player1_chat","player1_chat_bubble",message,ultimate);
             }
             else if(ultimate==2){
-                chat_show("player3_chat",message,ultimate);
+                chat_show("player3_chat","player4_chat_bubble",message,ultimate);
             }
             else if(ultimate==3){
-                chat_show("player2_chat",message,ultimate);
+                chat_show("player2_chat","player2_chat_bubble",message,ultimate);
             }
             else if(ultimate==4){
-                chat_show("player4_chat",message,ultimate);
+                chat_show("player4_chat","player3_chat_bubble",message,ultimate);
             }
             
             document.getElementById("chat_window").value = "";
@@ -6966,7 +6966,7 @@ $(document).ready(function () {
             return true;
         }
     }
-    function chat_show(player_id_chat,msg, ultimate){
+    function chat_show(player_id_chat,chat_bub,msg, ultimate){
         var dummy;
         if(ultimate==1){
             player1_chat_clear++;
@@ -6985,16 +6985,22 @@ $(document).ready(function () {
             dummy = player4_chat_clear;
         }
 
+        document.getElementById(player_id_chat).style.setProperty("-webkit-transition", "all 0.3s ease-in-out");
+        document.getElementById(player_id_chat).style.webkitTransform = "scale(1)";
+        document.getElementById(player_id_chat).style.setProperty("display", "inline-block");
         document.getElementById(player_id_chat).innerHTML = msg;
-        document.getElementById(player_id_chat).style.display = "inline-block";  
+        document.getElementById(chat_bub).style.setProperty("-webkit-transition", "all 0.3s ease-in-out");
+        document.getElementById(chat_bub).style.webkitTransform = "scale(0.25)";
+        document.getElementById(chat_bub).style.setProperty("display", "inline-block");
+        
         var delay = setTimeout(function(){
-            chat_clear(player_id_chat,msg, dummy);
+            chat_clear(player_id_chat,chat_bub,msg, dummy);
             clearTimeout(delay);
         },6000);    
     }
 
 
-    function chat_clear(player_id_chat,msg,dummy){
+    function chat_clear(player_id_chat,chat_bub,msg,dummy){
         if(ultimate==1 && dummy<player1_chat_clear){
             return;
         }
@@ -7007,9 +7013,13 @@ $(document).ready(function () {
         else if(ultimate==4 && dummy<player4_chat_clear){
             return;
         }
+        document.getElementById(player_id_chat).style.setProperty("-webkit-transition", "all 0.3s ease-in-out");
+        document.getElementById(player_id_chat).style.webkitTransform = "scale(0)";
+        document.getElementById(player_id_chat).style.setProperty("display", "none");
         document.getElementById(player_id_chat).innerHTML = "";
-        document.getElementById(player_id_chat).style.display = "none";   
-
+        document.getElementById(chat_bub).style.setProperty("-webkit-transition", "all 0.3s ease-in-out");
+        document.getElementById(chat_bub).style.webkitTransform = "scale(0)";
+        document.getElementById(chat_bub).style.setProperty("display", "none");
         if(ultimate==1){
             player1_chat_clear = 0;
         }
@@ -7037,25 +7047,3 @@ $(document).ready(function () {
 
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

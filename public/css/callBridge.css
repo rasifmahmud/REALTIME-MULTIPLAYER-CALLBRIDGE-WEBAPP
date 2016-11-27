@@ -208,3 +208,44 @@ body{
 }
 
 
+#player1_chat_bubble{
+	top: 2%;
+	left: -16%;
+	position: absolute;
+	/*-webkit-transition: all 6s ease-in-out;*/
+	-webkit-transform: scale(0);
+	height: 65%;
+	display: none;
+}
+
+#player2_chat_bubble{
+	top: 42%;
+	left: -16%;
+	position: absolute;
+	/*-webkit-transition: all 6s ease-in-out;*/
+	-webkit-transform: scale(0);
+	height: 65%;
+	display: none;
+}
+
+#player3_chat_bubble{
+	top: 42%;
+	left: 56%;
+	position: absolute;
+	/*-webkit-transition: all 6s ease-in-out;*/
+	-webkit-transform: scale(0);
+	height: 65%;
+	display: none;
+}
+
+
+#player4_chat_bubble{
+	top: 2%;
+	left: 56%;
+	position: absolute;
+	/*-webkit-transition: all 6s ease-in-out;*/
+	-webkit-transform: scale(0);
+	height: 65%;
+	display: none;
+}
+
