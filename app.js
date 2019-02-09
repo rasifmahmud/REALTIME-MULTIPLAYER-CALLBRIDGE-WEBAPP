@@ -2,10 +2,10 @@
  * Created by Razon on 6/11/2016.
  */
 
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+const express = require('express');
+const app = express();
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server);
 module.exports = io;
 require('./realtime/realtime');
 
@@ -16,7 +16,22 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public/'));
 
 
-var main_router = require('./routers/main_router');
+const main_router = require('./routers/main_router');
+const session = require("express-session")({
+    secret: "my-secret",
+    resave: true,
+    saveUninitialized: true
+});
+const sharedSession = require("express-socket.io-session");
+
+// Use express-session middleware for express
+app.use(session);
+
+// Use shared session middleware for socket.io
+// setting autoSave:true
+io.use(sharedSession(session, {
+    autoSave: true
+}));
 app.use(main_router);
 
 
